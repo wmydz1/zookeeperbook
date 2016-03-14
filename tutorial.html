@@ -1,0 +1,1844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<head><link rel="stylesheet" type="text/css" href="http://java.globinch.com/wp-content/cache/minify/000000/VY1REoMgDEQv1Mh4iB4kQsRYIDRgqbev2E5n_Nzdt7ujaXvhFSFRK4FqJS3GlmJeGNhhZUn35DnRsD430v02GqeE0as0KFYlBKjK3pOSg0neZ7nUPdCBzmhpEnlARk-QVaIcBxDYL7WznGzYHBUzE9aF9AwuYoic-pDIwQPHvvOv96tvMsxK9GNbhonFK-aF8WQuTqc-.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://java.globinch.com/wp-content/cache/minify/000000/M9AvL8pPztbNTS0pytcvSi0uyM8rzixL1U1JLc5MzwMA.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://java.globinch.com/wp-content/cache/minify/000000/M9AvL8pPztbNTS0pytcvLqnMSdUx1E_LSSxK1U8uLoawgCLlBbrJ-SmpuhmZ6Rk5QFwClsUQBQA.css" media="all" />
+
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<title>Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+	<link rel="pingback" href="http://java.globinch.com/xmlrpc.php" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+<!-- SEO Ultimate (http://www.seodesignsolutions.com/wordpress-seo/) -->
+	<link rel="author" href="https://plus.google.com/+BinuGeorgeP" />
+	<meta name="description" content="Apache Zookeeper  Tutorial, Use Cases and Zookeeper Java API Examples. How to download and setup Zookeeper and use Zookeeper API to develop client applications" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples" />
+	<meta property="og:description" content="Apache Zookeeper  Tutorial, Use Cases and Zookeeper Java API Examples. How to download and setup Zookeeper and use Zookeeper API to develop client applications" />
+	<meta property="og:url" content="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/" />
+	<meta property="og:image" content="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java.jpg" />
+	<meta property="article:published_time" content="2016-01-30" />
+	<meta property="article:modified_time" content="2016-02-01" />
+	<meta property="article:author" content="http://java.globinch.com/author/admin/" />
+	<meta property="article:section" content="Zookeeper" />
+	<meta property="article:tag" content="Apache Zookeeper" />
+	<meta property="article:tag" content="apache zookeeper alternatives" />
+	<meta property="article:tag" content="apache zookeeper tutorial" />
+	<meta property="article:tag" content="apache zookeeper use cases" />
+	<meta property="article:tag" content="explaining apache zookeeper" />
+	<meta property="article:tag" content="zookeeper" />
+	<meta property="og:site_name" content="Globinch Java Forum" />
+	<meta property="fb:app_id" content="172852372779771" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@globinch" />
+<!-- /SEO Ultimate -->
+
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="alternate" type="application/rss+xml" title="Globinch Java Forum &raquo; Feed" href="http://java.globinch.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Globinch Java Forum &raquo; Comments Feed" href="http://java.globinch.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Globinch Java Forum &raquo; Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples Comments Feed" href="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/java.globinch.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+
+<link rel='stylesheet' id='gc-message-bar-generated-css'  href='http://java.globinch.com/wp-content/plugins/gc-message-bar/style-gc-message-bar.php?ver=4.4.2' type='text/css' media='screen' />
+<link rel='stylesheet' id='google_webfonts-css'  href='http://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700%7CLato%3A100%2C300%2C400%2C700%2C900%2C100italic%2C300italic%2C400italic%2C700italic%2C900italic%7CPT+Sans%3A400%2C700%2C400italic%2C700italic%7CBitter%3A400%2C700%2C400italic%7CDroid+Serif%3A400%2C700%2C700italic%2C400italic%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C800italic%2C400%2C800%2C700%2C600%2C300%7COswald%3A400%2C700%2C300%7COpen+Sans+Condensed%3A300%2C300italic%2C700%7CYanone+Kaffeesatz%3A400%2C700%2C300%2C200%7CRoboto%3A400%2C900italic%2C700italic%2C900%2C700%2C500italic%2C500%2C400italic%2C300italic%2C300%2C100italic%2C100&#038;subset=latin%2Clatin-ext%2Ccyrillic%2Ccyrillic-ext%2Cgreek-ext%2Cgreek%2Cvietnamese&#038;ver=4.4.2' type='text/css' media='all' />
+
+
+
+
+
+
+
+<link rel='stylesheet' id='flare-oswald-font-css'  href='http://fonts.googleapis.com/css?family=Oswald%3A700%3Alatin&#038;text=1234567890MK.&#038;ver=1.2.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/menu-effect/jquery-latest.js?ver=4.4.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var userSettings = {"url":"\/","uid":"0","time":"1457937265","secure":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://java.globinch.com/wp-includes/js/utils.min.js?ver=4.4.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var $DGD = {"ajaxurl":"http:\/\/java.globinch.com\/wp-admin\/admin-ajax.php","nonce":"797949b982","debug":"","permalink":"http:\/\/java.globinch.com\/enterprise-services\/zookeeper\/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples\/","title":"Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples","thumbnail":"http:\/\/java.globinch.com\/wp-content\/uploads\/2016\/01\/zookeeper-Globinch-java.jpg","scripthost":"http:\/\/java.globinch.com\/wp-content\/plugins\/dreamgrow-scroll-triggered-box\/","scrollboxes":[{"trigger":{"action":"scroll","scroll":"20","delaytime":"0","element":""},"vpos":"bottom","hpos":"center","cookieLifetime":"1","hide_mobile":"1","receiver_email":"1","thankyou":"You are subscribed. Thank You!","submit_auto_close":"5","delay_auto_close":"0","theme":"default","widget_enabled":"1","height":"auto","width":"350","jsCss":{"padding":"10","margin":"10","backgroundColor":"#ffe14f","boxShadow":"0px","borderColor":"#ffffff","borderWidth":"0px","borderRadius":"0px","backgroundImageUrl":""},"closeImageUrl":"","transition":{"from":"b","effect":"none","speed":"400"},"social":{"facebook":"","twitter":"","google":"","pinterest":"","stumbleupon":"","linkedin":""},"id":"dgd_scrollbox-283","mode":"stb","voff":0,"hoff":0}]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/dreamgrow-scroll-triggered-box/js/script.js?ver=2.2.0'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/facebook-page-promoter-lightbox/includes/featherlight/featherlight.min.js?ver=4.4.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var lb_l_ret = {"width":"400","height":"255","delay":"2000","coc":"0","fb_id":"1526214284283726","cooc":"0","display_on_page":"1","display_on_post":"1","display_on_homepage":"1","display_on_archive":"1","show_once":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/facebook-page-promoter-lightbox/includes/launch/launch.min.js?ver=4.4.2'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/themes/wrock-metro/js/topnavi.js?ver=1.0'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/themes/wrock-metro/js/backscript.js?ver=1.0'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/foobox-image-lightbox/js/foobox.free.min.js?ver=1.0.9'></script>
+<link rel='https://api.w.org/' href='http://java.globinch.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://java.globinch.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://java.globinch.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='REST API Versioning: URI and Media Type-Header Versioning Strategies' href='http://java.globinch.com/enterprise-java/web-services/rest-api-versioning-uri-media-type-header-versioning-strategies/' />
+<meta name="generator" content="WordPress 4.4.2" />
+<link rel="canonical" href="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/" />
+<link rel='shortlink' href='http://java.globinch.com/?p=341' />
+<link rel="alternate" type="application/json+oembed" href="http://java.globinch.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://java.globinch.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&#038;format=xml" />
+<script type="text/javascript" src="http://java.globinch.com/wp-content/plugins/ajax-comments/scriptaculous/prototype.js"></script>
+<script type="text/javascript" src="http://java.globinch.com/wp-content/plugins/ajax-comments/scriptaculous/scriptaculous.js"></script>
+<script type="text/javascript" src="http://java.globinch.com/wp-content/plugins/ajax-comments/ajax-comments.php?js"></script>
+    <script type="text/javascript">
+ function mainmenu(){
+$(" #menu-Main Menu ul ").css({display: "none"}); // Opera Fix
+$(" #menu-Main Menu li").hover(function(){
+		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(500);
+		},function(){
+		$(this).find('ul:first').css({visibility: "hidden"});
+		});
+}
+ $(document).ready(function(){					
+	mainmenu();
+});
+</script>
+    
+<!-- Custom Styling -->
+<style type="text/css">/*<![CDATA[*/
+input[type=text] {
+  padding: 0;
+    width:50%;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border-color:  #3366FF;
+    border: 1px solid #3366FF;
+    background-color: white;
+}
+#header {
+    height: 80px;
+    background: none repeat scroll 0% 0% transparent;
+    position: relative;
+    z-index: 100;
+    margin: 10px auto 0px;
+    width: 97%;
+}
+.site-title{
+font-size: 26px;
+}
+#navigation .secondary ul a {
+    height: 48px;
+    color: white;
+    line-height: 45px;
+    font-size: 110%;
+}
+#navigation {
+    background: #607D8B;
+    margin: 0;
+    font-size: 12px;
+    min-height: 35px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 99;
+    width: 97%;
+}
+#navigation ul a {
+    position: relative;
+    display: block;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 48px;
+    color: #fff;
+    /*text-transform: uppercase;*/
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+/*]]>*/</style>
+       <style type="text/css">
+		body { font-size:13px; font-style: normal; color:#555555;}
+		body { background: #ffffff}
+			h1.entry-title a{ font-size:28px; font-style: normal; color:#555555;}
+		a{ color: #3c55e0; }
+		#pagenavi span.current, #pagenavi a:hover{ background-color:  !important; }
+		#pagenavi a, #pagenavi span{ background-color: #359BED !important; }
+		#sidebar h4, #sidebar h4 a{ background-color: #2693BA !important; }
+		#sidebar2 h4, #sidebar2 h4 a{ background-color: #2693BA !important; }
+		#pagenavi a{ color: #ffffff !important; }
+		#navigation .current_page_item, #navigation .secondary ul li.current-menu-item, #navigation .secondary >ul >li a:hover{ color:#ffffff !important; background: #359BED !important;}
+		a:hover{ color: #359BED !important; }
+		#top-menu-inner, #top-menu ul ul a{ background: #2693BA !important; }
+		#top-menu .first ul li.current-menu-item, #top-menu .first >ul >li a:hover{ color: #fff !important; background: #359BED !important; }
+		#navigation, #navigation ul ul a{ background: ;}
+		.readmore{ background: #359BED;}
+		
+	</style>
+    
+<link rel="publisher" href="https://plus.google.com/+BinuGeorgeP?rel=publisher"/>
+<meta name="google-site-verification" content="2IviJRxr_6TuCN7hASjCgf3yQqC24cuJr8pHnjiGtNQ" />
+<meta name="msvalidate.01" content="C067F90CD7E4BA44F7837E62BEFE9649"/>
+<style type="text/css"></style>
+<link rel="shortcut icon" href="http://www.globinch.com/wp-content/uploads/2012/03/favicon.ico"/>
+<meta property="og:site_name" content="Globinch Java Forum" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="fb:app_id" content="358516963021" />
+<meta property="og:url" content="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/" />
+<meta property="og:title" content="Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples" />
+<meta property="og:description" content="Explaining Apache Zookeeper Apache Zookeeper is a highly consistent, scalable and reliable cluster co-ordination service. ZooKeeper itself is a distributed service that is ideal for Configuration management, Naming service, providing distributed synchronization, leader election and group services. It is a open source service that reliably coordinates distributed processes. Your distributed clustered applications can make use&hellip;" />
+<meta property="og:image" content="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java.jpg" />
+<meta property="og:image:width" content="640" />
+<meta property="og:image:height" content="480" />
+<meta property="og:image" content="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-knamespace.jpg" />
+<meta property="og:image:width" content="442" />
+<meta property="og:image:height" content="253" />
+<meta property="og:image" content="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-commands.png" />
+<meta property="og:image:width" content="597" />
+<meta property="og:image:height" content="492" />
+<meta property="article:published_time" content="2016-01-30T05:47:31+00:00" />
+<meta property="article:modified_time" content="2016-02-01T17:22:54+00:00" />
+<meta property="article:author" content="http://java.globinch.com/author/admin/" />
+<meta property="article:section" content="Zookeeper" />
+<meta property="article:tag" content="Apache Zookeeper" />
+<meta property="article:tag" content="apache zookeeper alternatives" />
+<meta property="article:tag" content="apache zookeeper tutorial" />
+<meta property="article:tag" content="apache zookeeper use cases" />
+<meta property="article:tag" content="explaining apache zookeeper" />
+<meta property="article:tag" content="zookeeper" />
+<script src='//connect.facebook.net/en_EN/all.js#xfbml=1'></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3674121-21', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="single single-post postid-341 single-format-standard custom-background">
+<div class="wrapper">
+<div id="top-menu">	
+	<div id="top-menu-inner" class="clearfix">
+<div class="first">
+			<ul id="menu-top-menu" class="menu"><li class="home-icon"><a href="http://java.globinch.com/" title="Home"><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/home.jpg" width="26" height="24" alt="Home" /></a></li><li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37"><a href="http://www.globinch.com/about/">About</a></li>
+<li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a href="http://www.globinch.com/privacy-policy/">Privacy Statement</a></li>
+<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a href="http://www.globinch.com/copyright/">Copyright</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a href="http://www.globinch.com/contact-globinch/">Contact</a></li>
+<li id="menu-item-276" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-276"><a href="http://www.globinch.com">Globinch.com</a></li>
+<li id="menu-item-277" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-277"><a href="https://plus.google.com/117341404717640025660?rel=author">Google+</a></li>
+</ul>	</div></div>	</div> 
+<!-- BEGIN HEADER -->
+	<div id="header">
+    <div id="header-inner" class="clearfix">
+		<div id="logo">
+			        
+            <div class="site-title">
+			<a href="http://java.globinch.com/" title="Globinch Java Forum" rel="home">Globinch Java Forum</a></div>
+			<h2 class="site-description">Daily Dose of Java</h2></div>
+      
+    		</div>
+						
+	    </div> 	</div> 
+	<!-- BEGIN TOP NAVIGATION -->		
+	<div id="navigation" class="nav"> 
+    <div id="navigation-inner" class="clearfix">
+	<div class="secondary">	<ul id="menu-main-menu" class="menu"><li class="home-icon"><a href="http://java.globinch.com/" title="Home"><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/home.jpg" width="26" height="24" alt="Home" /></a></li><li id="menu-item-45" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-45"><a href="http://java.globinch.com/category/architecture/">Architecture</a>
+<ul class="sub-menu">
+	<li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="http://java.globinch.com/category/architecture/architecture-tips/">Architecture Tips</a></li>
+	<li id="menu-item-46" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-46"><a title="Architecture Patterns &#038; Styles" href="http://java.globinch.com/category/architecture/architecture-patterns-styles/">Patterns And Styles</a>
+	<ul class="sub-menu">
+		<li id="menu-item-312" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-312"><a href="http://java.globinch.com/category/architecture/architecture-patterns-styles/rest-hateoas/">REST-HATEOAS</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-47" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-47"><a href="http://java.globinch.com/category/core-java/">Java</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-48"><a href="http://java.globinch.com/category/enterprise-java/">Enterprise Java</a>
+<ul class="sub-menu">
+	<li id="menu-item-59" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59"><a href="http://java.globinch.com/category/enterprise-java/jsf/">JSF</a></li>
+</ul>
+</li>
+<li id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71"><a href="http://java.globinch.com/category/enterprise-java/web-services/">Web Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-72"><a href="http://java.globinch.com/category/enterprise-java/web-services/jax-ws/">JAX-WS</a></li>
+	<li id="menu-item-313" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-313"><a href="http://java.globinch.com/category/enterprise-java/web-services/hateoas/">HATEOAS</a></li>
+	<li id="menu-item-314" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-314"><a href="http://java.globinch.com/category/enterprise-java/web-services/rest-jax-rs/">REST &#038; JAX-RS</a></li>
+</ul>
+</li>
+<li id="menu-item-49" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="http://java.globinch.com/category/frameworks/">Frameworks</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-350"><a href="http://java.globinch.com/category/enterprise-services/">Enterprise Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-351"><a href="http://java.globinch.com/category/enterprise-services/zookeeper/">Zookeeper</a></li>
+</ul>
+</li>
+<li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-51"><a href="http://java.globinch.com/category/patterns/">Patterns</a>
+<ul class="sub-menu">
+	<li id="menu-item-52" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52"><a href="http://java.globinch.com/category/patterns/design-patterns/">Design Patterns</a></li>
+</ul>
+</li>
+<li id="menu-item-198" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-198"><a href="http://java.globinch.com/category/enterprise-java/security/">Security</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-53"><a href="http://java.globinch.com/category/performance-tuning/">Performance Tuning</a>
+<ul class="sub-menu">
+	<li id="menu-item-203" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-203"><a href="http://java.globinch.com/category/java-quick-tips/">Quick Tips</a></li>
+</ul>
+</li>
+<li id="menu-item-50" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50"><a href="http://java.globinch.com/category/tools/">Tools</a></li>
+</ul>		</div></div></div> 
+	<!-- END TOP NAVIGATION -->
+	
+	<!-- BEGIN PAGE -->
+<div id="page">	<div id="page-inner" class="clearfix">
+<div id="banner-top"></div>
+		<div id="content">
+		<div id="crumbs"><a href="http://java.globinch.com/">Home</a> &raquo; <a href="http://java.globinch.com/category/enterprise-services/">Enterprise Services</a> &raquo; <a href="http://java.globinch.com/category/enterprise-services/zookeeper/">Zookeeper</a> &raquo; <span class="current">Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples</span></div>	
+									<article id="post-341" class="post-341 post type-post status-publish format-standard has-post-thumbnail hentry category-zookeeper tag-apache-zookeeper tag-apache-zookeeper-alternatives tag-apache-zookeeper-tutorial tag-apache-zookeeper-use-cases tag-explaining-apache-zookeeper tag-zookeeper" itemscope="itemscope" itemtype="http://schema.org/Article">
+			<header class="entry">
+			<h1 class="entry-title" itemprop="name"><a itemprop="url" href="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/" rel="bookmark" title="Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples">Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples</a></h1>
+						<span itemprop="articleBody"><div class="flare-horizontal flare-position-top flare-backgroundcolor-light enablecounters enabletotal" data-humbleflarecount="2">
+    <span class="loading"><span></span></span>
+    <span class="flare-total first"><strong>8</strong> Flares</span>
+    
+                    <span data-type="twitter" class="flare-button button-type-twitter flare-iconstyle-round-bevel first" style="background-color:#00aced;z-index:5">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Twitter</span>
+            </span>
+        </span>
+        <span class="flare-button-count">0</span>
+            
+        <span class="flare-flyout flare-flyout-twitter first">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;a href=&quot;https://twitter.com/share&quot; class=&quot;twitter-share-button&quot;  data-via=&quot;globinch&quot; &gt;Tweet&lt;/a&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&quot;//platform.twitter.com/widgets.js&quot;;fjs.parentNode.insertBefore(js,fjs);}}(document,&quot;script&quot;,&quot;twitter-wjs&quot;);&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="facebook" class="flare-button button-type-facebook flare-iconstyle-round-bevel" style="background-color:#0b59aa;z-index:4">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Facebook</span>
+            </span>
+        </span>
+        <span class="flare-button-count">2</span>
+            
+        <span class="flare-flyout flare-flyout-facebook">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;iframe src=&quot;//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; style=&quot;border:none; overflow:hidden; width:120px; height:21px;&quot; allowTransparency=&quot;true&quot;&gt;&lt;/iframe&gt;"></span>
+        </span>
+        
+                    <span data-type="googleplus" class="flare-button button-type-googleplus flare-iconstyle-round-bevel" style="background-color:#d84d2f;z-index:3">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Google+</span>
+            </span>
+        </span>
+        <span class="flare-button-count">6</span>
+            
+        <span class="flare-flyout flare-flyout-googleplus">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;g:plusone&gt;&lt;/g:plusone&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  (function() {
+    var po = document.createElement(&quot;script&quot;); po.type = &quot;text/javascript&quot;; po.async = true;
+    po.src = &quot;https://apis.google.com/js/plusone.js&quot;;
+    var s = document.getElementsByTagName(&quot;script&quot;)[0]; s.parentNode.insertBefore(po, s);
+  })();
+&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="linkedin" class="flare-button button-type-linkedin flare-iconstyle-round-bevel" style="background-color:#0375b3;z-index:2">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">LinkedIn</span>
+            </span>
+        </span>
+        <span class="flare-button-count">0</span>
+            
+        <span class="flare-flyout flare-flyout-linkedin">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;IN/Share&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="email" class="flare-button button-type-email flare-iconstyle-round-bevel" style="background-color:#f2d446;z-index:1">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Email</span>
+            </span>
+        </span>
+        <span class="flare-button-count">--</span>
+            
+        <span class="flare-flyout flare-flyout-email">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;a href=&quot;mailto:?body=Check%20out%20this%20article%20I%20found%20on%20Globinch%20Java%20Forum%3A%0D%0A%0D%0AApache%20Zookeeper%20Explained%3A%20Tutorial%2C%20Use%20Cases%20and%20Zookeeper%20Java%20API%20Examples%0D%0Ahttp%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&amp;subject=Check%20out%20this%20article%20I%20found%20on%20Globinch%20Java%20Forum&quot; title=&quot;Email to a friend&quot; target=&quot;_blank&quot;&gt;Email to a friend&lt;/a&gt;"></span>
+        </span>
+        
+        
+            <span data-type="filament" class="flare-button button-type-filament flare-iconstyle-round-bevel last" style="background-color:#9848b5;z-index:0">
+        <span class="flare-button-wrap">
+            <span class="flare-button-icon">Filament.io</span>
+        </span>
+    </span>
+        
+    <span class="flare-flyout flare-flyout-filament">
+        <span class="flare-flyout-inner">
+            <span class="flare-arrow"></span>
+        </span>
+        <span class="flare-iframe-wrapper" data-code-snippet='<a href="https://filament.io/applications/flare?utm_source=flare_wp&utm_medium=deployment&utm_content=flarebar&utm_campaign=filament" target="_blank">Made with <strong>Flare</strong> <span>More Info</span></a>'></span>
+    </span>
+    
+    <span class="flare-total last"><strong>8</strong> Flares</span>
+
+    <span class="close">
+        <a href="#close">&#215;</a>
+    </span>
+</div><h3> Explaining Apache Zookeeper </h3>
+<p>Apache Zookeeper is a highly consistent, scalable  and reliable cluster co-ordination service. ZooKeeper itself is a distributed  service that is ideal for Configuration management, Naming service, providing distributed synchronization, leader election and group services. It is a open source service that reliably coordinates distributed processes.<br />
+Your distributed clustered applications can make use of Zookeeper to store,manage and propagate updates to required cluster configuration and management data.</p>
+<div style="background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #E1E1E1; border-radius: 9px 9px 9px 9px; font-size: 90%; line-height: 1.4; padding: 20px; width: 70%;">
+<h3><strong>Table of Contents</strong></h3>
+<ul>
+<li><a href="#distributed-co-ordiation">Coordination in Distributed Applications</a></li>
+<ol>
+<li><a href="#problem-detection">The Problem Detection in Distributed Applications</a></li>
+<li><a href="#configuration-management">Configuration Management</a></li>
+<li><a href="#leader-election-consensus">Leader Election and Consensus</a></li>
+</ol>
+<li><a href="#explaining-apache-zookeeper">Explaining Apache Zookeeper</a></li>
+<ol>
+<li><a href="#cap-theorem-zookeeper">CAP Theorem</a></li>
+</ol>
+<li><a href="#zookeeper-architecture-explained">Apache ZooKeeper Architecture</a></li>
+<li><a href="#zookeeper-data-model-znode">Zookeeper Data Model :ZNode</a></li>
+<ol>
+<li><a href="#zookeeper-znode-types">Apache ZooKeeper Znode Types</a></li>
+</ol>
+<li><a href="#zookeeper-atomic-protocol">Apache ZooKeeper Atomic Protocol :Zab</a></li>
+<li><a href="#zookeeper-leader-election">ZooKeeper Leader Election</a></li>
+<li><a href="#zookeeper-sessions">Apache ZooKeeper Sessions</a></li>
+<li><a href="#zookeeper-read-write-events-watches">ZooKeeper Reads,Writes,Events and Watches</a></li>
+<li><a href="#zookeeper-high-availability-strategies">Apache ZooKeeper High Availability</a></li>
+<li><a href="#setting-up-zookeeper-download">Download and Set Up Apache ZooKeeper</a></li>
+<ol>
+<li><a href="#zookeeper-download-setup">Apache ZooKeeper Setup: Local and Distributed Mode</a></li>
+<li><a href="#zookeeper-standalone-mode">Apache ZooKeeper Setup: Standalone Mode</a></li>
+<li><a href="#zookeeper-distributed-mode">Apache ZooKeeper Setup: Distributed Mode</a></li>
+</ol>
+<li><a href="#zookeeper-CLI-examples">Apache ZooKeeper CLI Examples</a></li>
+<li><a href="#ZooKeeper-API-Java-Examples">Apache ZooKeeper API: Java Examples</a></li>
+<ol>
+<li><a href="#ZooKeeper-API-Java-Examples-Connection">ZooKeeper Java Example: Connection</a></li>
+<li><a href="#ZooKeeper-API-Java-Examples-Interface">ZooKeeper Java Example: Interface</a></li>
+<li><a href="#ZooKeeper-API-Java-Examples-client">ZooKeeper Java Example: Client</a></li>
+<li><a href="#ZooKeeper-API-Java-Examples-Watcher">ZooKeeper Java Example: Watcher</a></li>
+<li><a href="#ZooKeeper-API-Java-Examples-Test-Client">ZooKeeper Java Example: Test-Client</a></li>
+</ol>
+<li><a href="#Apache-ZooKeeper-Use-cases">Apache ZooKeeper Use Cases</a></li>
+<li><a href="#Apache-ZooKeeper-Alternatives">Apache ZooKeeper Alternatives</a></li>
+<li><a href="#Apache-ZooKeeper-history">Apache ZooKeeper History</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<h2>Coordination in Distributed Applications<a name="distributed-co-ordiation"></a></h2>
+<p>Cluster coordination in distributed application is a complex process. Large scale distributed systems needs to manage and maintain a number of vital attributes to keep the distributed system available and healthy.</p>
+<h3>The Problem Detection in Distributed Applications<a name="problem-detection"></a></h3>
+<p>Detecting node level events is very important to make any distributed system reliable and available. Node crash/failure detectors should identify and notify other nodes of the cluster about the event. Also the availability detectors needs to maintains information about the availability history of nodes in the system.<br />
+A master node (in a master-slave) or any node (in master-master) in a distributed environment needs to know about the approximate number of non-faulty nodes present as a part of its group.</p>
+<h3>Configuration Management<a name="configuration-management"></a></h3>
+<p>Managing the configuration common to all nodes in the distributed group is another critical task. Each node having its own copy of configuration makes the system less easy to maintain.</p>
+<h3>Leader Election and Consensus<a name="leader-election-consensus"></a></h3>
+<p>Leader Election among a group of nodes based on any protocol requires consensus and this is a difficult to manage a in dynamic distributed system as members may leave or fail or join any time.</p>
+<h2>Explaining Apache Zookeeper<a name="explaining-apache-zookeeper"></a></h2>
+<p>As mentioned in the beginning, Zookeeper is a distributed system coordination service. While considering CAP Theorem, Zookeeper is a CP system where Consistency and Partition tolerance are guaranteed. </p>
+<h3>CAP Theorem<a name="cap-theorem-zookeeper"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+CAP Theorem (Brewer&#039;s theorem/ By Eric Brewer) states that, it is nearly impossible to achieve all three of Consistency, Availability and Partition tolerance. Any distributed system can choose only two of the following:
+1. Consistency : All nodes is a distributed environment see the same data at the same time.
+2. Availability: Guarantee that every request receives a response.
+3. Partition Tolerance: Even if the connections between nodes are down, the other nodes works as guaranteed. (Tolerance to network partitions/broken communication)
+</pre>
+<p>Zookeeper relaxes availability, but guarantees consistency and partition tolerance. Zookeeper implements an API that manipulates simple waitfree data objects organized hierarchically as in file systems.Pipelined architecture of ZooKeeper enables the execution of operations from a single client in FIFO order.</p>
+<h2>Zookeeper Architecture<a name="zookeeper-architecture-explained"></a></h2>
+<p>The Zookeeper service comprise of an Ensemble of servers. Ensemble uses replication to achieve high availability and extreme performance. A Zookeeper cluster, Ensemble, consists of a Leader node and followers.  A leader node is chosen by consensus within the ensemble. If the leader fails another node node will be elected as leader. Ensemble share the state of your data and is called ZooKeeper State.<br />
+<a href="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java.jpg" rel="attachment wp-att-342"><img src="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java.jpg" alt="zookeeper explained Globinch java" width="640" height="480" class="aligncenter size-full wp-image-342" srcset="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java-300x225.jpg 300w, http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java-600x450.jpg 600w, http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-Globinch-java.jpg 640w" sizes="(max-width: 640px) 100vw, 640px" /></a></p>
+<h2>Zookeeper Data Model :ZNode <a name="zookeeper-data-model-znode"></a></h2>
+<p>ZooKeeper provides to its clients the abstraction of a set of data nodes (znodes), organized according to a hierarchical name space. The znodes in this hierarchy are data objects that clients manipulate through the ZooKeeper API. </p>
+<h3>Types of ZNodes<a name="zookeeper-znode-types"></a></h3>
+<p>There are three types of ZNodes:</p>
+<pre class="wp-code-highlight prettyprint">
+Regular: Clients manipulate regular znodes by creating and deleting them explicitly;
+Ephemeral: Clients create such znodes, and they either delete them explicitly, or let the system remove them automatically when the session that creates them terminates.
+Sequential: These Znodes when created, gets a unique number (sequence) suffixed to its name.
+</pre>
+<p>Each ZNode is using UNIX style notation. For example, /A/B/C to denote the path to znode C, where C has B as its parent and B has A as its parent. All znodes store data, and all znodes,except for ephemeral znodes, can have children.<br />
+<a href="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-knamespace.jpg" rel="attachment wp-att-343"><img src="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-knamespace.jpg" alt="zookeeper datamodel file system namespace" width="442" height="253" class="aligncenter size-full wp-image-343" srcset="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-knamespace-300x172.jpg 300w, http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-knamespace.jpg 442w" sizes="(max-width: 442px) 100vw, 442px" /></a></p>
+<h2> ZAB : Zookeeper Atomic Protocol<a name="zookeeper-atomic-protocol"></a></h2>
+<p>All requests that update ZooKeeper state are forwarded to the leader. The leader executes the request and broadcasts the change to the ZooKeeper state using an Zookeeper Atomic Broadcast (ZAB) protocol. The server that<br />
+receives the client request responds to the client when it delivers the corresponding state change. Zab uses by default<br />
+simple majority quorums to decide on a proposal, so Zab and thus ZooKeeper can only work if a majority of servers are correct.<br />
+A Message is a sequence of bytes to be atomically broadcast to all ZooKeeper servers. A message put into a Proposal and agreed upon before it is delivered. Total ordering is achieved using a ZooKeeper transaction id (zxid). All<br />
+proposals will be stamped with a zxid when it is proposed and exactly reflects the total ordering. ZooKeeper messaging operates the similar way a classic two phase commit works. Proposals are sent to all ZooKeeper servers and committed when a quorum of them acknowledge the proposal. </p>
+<h2>Zookeeper Leader Election<a name="zookeeper-leader-election"></a> </h2>
+<p>Zookeeper leader activation includes leader election. A leader becomes active only when a quorum of followers has synced up with the leader. The quorum counts leader as a follower as well. All these servers in the ensemble will have the same state. This state consists of all of the proposals that the leader believes have been committed and the proposal to follow the leader, the NEW_LEADER proposal.<br />
+Leader election process results in a single server designated as a leader. Leader start waiting for followers to connect. Once the follower connection is completed the Zookeeper state synchronization process begins. The leader will sync up with followers by sending any proposals followers are missing. If a follower is missing too many proposals, leader will send a full snapshot of the state to the follower.</p>
+<h2>Zookeeper Sessions<a name="zookeeper-sessions"></a></h2>
+<p>Zookeeper sessions are attached to the connected clients. Zookeeper session is initiated when a client connects to ZooKeeper with an associated timeout. Session ends when clients explicitly close a session handle or ZooKeeper detects that a clients is faulty.<br />
+Zookeeper considers a client faulty if it does not receive anything from its session for more than the configured timeout.  </p>
+<h2> Zookeeper Read,Write, Events and Watch<a name="zookeeper-read-write-events-watches"></a></h2>
+<p>All requests that update ZooKeeper state (Writes)are forwarded to the leader. The leader executes the request and<br />
+broadcasts the change to the ZooKeeper state through Zab. Zab by default uses a simple majority quorums to decide on a proposal. All read requests are serviced from the local replica of each server data tree.<br />
+ZooKeeper supports the concept of watches. Clients can set a watch on a znodes. A watch event will be triggered and removed when the znode changes. When a watch is triggered the client receives a packet saying that the znode has changed.</p>
+<h2>ZooKeeper High Availability<a name="zookeeper-high-availability-strategies"></a> </h2>
+<p>ZooKeeper provides high availability by replicating the ZooKeeper state (data) on each server that composes the service. The replicated database is an in-memory database containing the entire data tree (snapshot). Each znode in the tree stores a maximum of 1MB of data by default. Another way ZooKeeper achieves high throughput is by keeping the request processing pipeline full.</p>
+<h2>How to Setup Zookeeper<a name="setting-up-zookeeper-download"></a> </h2>
+<p>It is easy to get the Zookeeper download and setup in your workstation. Setting up a ZooKeeper server in standalone mode is straightforward  and the server is contained in a single JAR file.</p>
+<h3> Zookeeper Download and Setup<a name="zookeeper-download-setup"></a></h3>
+<p>You can download a stable release from Apache Zookeeper site. http://zookeeper.apache.org/releases.html<br />
+The configuration file is usually named as &#8220;zoo.cfg&#8221; but you can name it the way you want.<br />
+To start the Zookeeper</p>
+<h3>Running Zookeeper standalone mode<a name="zookeeper-standalone-mode"></a></h3>
+<p>Open the configuration fle and update the following minimum properties.</p>
+<pre class="wp-code-highlight prettyprint">
+tickTime=2000 //Tick time is the used for heart beats.Minimum session timeout will be twice the tickTime.
+dataDir=/var/somdir/zookeeper/data  //Location to store the in-memory database snapshots and transaction log
+clientPort=2181  // Port to listen for client connections
+</pre>
+<p>To run the zookeeper in standalone mode, navigate to /bin/ folder and use the following command<br />
+bin/zkServer.sh start<br />
+This will bring up the Zookeeper in standalone mode. </p>
+<h3>Running Replicated ZooKeeper<a name="zookeeper-distributed-mode"></a></h3>
+<p>A replicated group of servers in the same application is called a quorum, and in replicated mode, all servers in the quorum have copies of the same configuration file.<br />
+For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. This is because when you use even number of servers, for example 2 servers,  you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently less stable than a single server, because there are two single points of failure.<br />
+Here is an example of zoo.cfg entries of replicated ZooKeeper servers.</p>
+<pre class="wp-code-highlight prettyprint">
+tickTime=2000
+dataDir=/var/lib/zookeeper
+clientPort=2181
+initLimit=5   //Length of time the ZooKeeper servers in quorum have to connect to a leader
+syncLimit=2		//How far out of date a server can be from a leader.
+server.1=zoo1:2888:3888		//Server Id,  Peers communication port and Port for leader election.
+server.2=zoo2:2888:3888
+server.3=zoo3:2888:3888
+</pre>
+<p>Note: If you are trying a replicated mode in single server, be sure to use different ports for each Zookeeper instances.</p>
+<h2>Zookeeper CLI examples<a name="zookeeper-CLI-examples"></a></h2>
+<p>Assuming that you are running Zookeeper in local mode. Go to bin folder and issue the command<br />
+bin/zkCli.sh -server 127.0.0.1:2181<br />
+This will connect to the Zookeeper server.<br />
+To know all the available commands, type help.</p>
+<pre class="wp-code-highlight prettyprint">
+[zk: localhost:2181(CONNECTED) 0] help
+ZooKeeper -server host:port cmd args
+        stat path [watch]
+        set path data [version]
+        ls path [watch]
+        delquota [-n|-b] path
+        ls2 path [watch]
+        setAcl path acl
+        setquota -n|-b val path
+        history
+        redo cmdno
+        printwatches on|off
+        delete path [version]
+        sync path
+        listquota path
+        rmr path
+        get path [watch]
+        create [-s] [-e] path data acl
+        addauth scheme auth
+        quit
+        getAcl path
+        close
+        connect host:port
+[zk: localhost:2181(CONNECTED) 1]
+
+</pre>
+<p>Let us create a znode &#8216;NodeOne&#8217; and write &#8216;ValueOne&#8217; using the &#8216;create&#8217; command. After that issue the &#8216;get&#8217; command to get the details of the node. You can then update the ZNode using &#8216;set&#8217; command. See the commands and their results below.<br />
+<a href="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-commands.png" rel="attachment wp-att-344"><img src="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-commands.png" alt="zookeeper CLI  commands" width="597" height="492" class="aligncenter size-full wp-image-344" srcset="http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-commands-300x247.png 300w, http://java.globinch.com/wp-content/uploads/2016/01/zookeeper-commands.png 597w" sizes="(max-width: 597px) 100vw, 597px" /></a></p>
+<h2>Zookeeper Java API Example<a name="ZooKeeper-API-Java-Examples"></a></h2>
+<p>ZooKeeper has an official API binding for Java and C.  ZooKeeper API provides both synchronous and asynchronous methods  and can be used to create an application that can connect, interact, manipulate data, coordinate, and finally disconnect from a ZooKeeper ensemble to achieve variety of co-ordination services.<br />
+Here is a simple example that shows how to use the Zookeeper API to create a node, update the node, retrive the data and remove it. </p>
+<h3>ZooKeeper Connection Class:ZKConnection.java<a name="ZooKeeper-API-Java-Examples-Connection"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+/*
+ * @(#)ZKConnection.java
+ * @author Binu George
+ * Globinch.com
+ * copyright http://www.java.globinch.com. All rights reserved.
+ */
+package com.globinch.zoo.client;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.ZooKeeper;
+
+/**
+ * ZKConnection Class. Class that initialize connection to Ensemble
+ * 
+ * @author Binu George
+ * @since 2016
+ * @version 1.0
+ * http://www.java.globinch.com. All rights reserved
+ */
+public class ZKConnection {
+
+	// Local Zookeeper object to access ZooKeeper ensemble
+	private ZooKeeper zoo;
+	final CountDownLatch connectionLatch = new CountDownLatch(1);
+
+	/**
+	 * 
+	 */
+	public ZKConnection() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * Initialize the Zookeeper connection
+	 * @param host
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public ZooKeeper connect(String host) throws IOException,
+			InterruptedException {
+
+		zoo = new ZooKeeper(host, 2000, new Watcher() {
+
+			public void process(WatchedEvent we) {
+
+				if (we.getState() == KeeperState.SyncConnected) {
+					connectionLatch.countDown();
+				}
+			}
+		});
+
+		connectionLatch.await();
+		return zoo;
+	}
+
+	// Method to disconnect from zookeeper server
+	public void close() throws InterruptedException {
+		zoo.close();
+	}
+
+}
+
+</pre>
+<h3>Zookeeper Client Operation Interface: ZKManager.java<a name="ZooKeeper-API-Java-Examples-Interface"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+/*
+ * @(#)ZKManager.java
+ * @author Binu George
+ * Globinch.com
+ * copyright http://www.java.globinch.com. All rights reserved.
+ */
+package com.globinch.zoo.client;
+
+import java.util.List;
+
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * ZKManager Interface. Defines the methods to manipulate znodes
+ * 
+ * @author Binu George
+ * @since 2016
+ * @version 1.0
+ * http://www.java.globinch.com. All rights reserved
+ */
+public interface ZKManager {
+	/**
+	 * Create a Znode and save some data
+	 * 
+	 * @param path
+	 * @param data
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 */
+	public void create(String path, byte[] data) throws KeeperException,
+			InterruptedException;
+
+	/**
+	 * Get the ZNode Stats
+	 * 
+	 * @param path
+	 * @return Stat
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 */
+	public Stat getZNodeStats(String path) throws KeeperException,
+			InterruptedException;
+
+	/**
+	 * Get ZNode Data
+	 * 
+	 * @param path
+	 * @param boolean watchFlag
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 */
+	public Object getZNodeData(String path,boolean watchFlag) throws KeeperException,
+			InterruptedException;
+
+	/**
+	 * Update the ZNode Data
+	 * 
+	 * @param path
+	 * @param data
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 */
+	public void update(String path, byte[] data) throws KeeperException,
+			InterruptedException;
+
+	/**
+	 * Get ZNode children
+	 * 
+	 * @param path
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 * return List&lt;String&gt;
+	 */
+	public List&lt;String&gt; getZNodeChildren(String path) throws KeeperException,
+			InterruptedException;
+
+	/**
+	 * Delete the znode
+	 * 
+	 * @param path
+	 * @throws KeeperException
+	 * @throws InterruptedException
+	 */
+	public void delete(String path) throws KeeperException,
+			InterruptedException;
+}
+
+</pre>
+<h3>Zookeeper Client Operation class: ZKClientManagerImpl.java<a name="ZooKeeper-API-Java-Examples-client"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+/*
+ * @(#)ZKClientManagerImpl.java
+ * @author Binu George
+ * Globinch.com
+ * copyright http://www.java.globinch.com. All rights reserved.
+ */
+package com.globinch.zoo.client;
+
+import java.util.List;
+
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.ZooDefs;
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * ZKClientManagerImpl class. Implements the methods to manipulate znodes.
+ * 
+ * @author Binu George
+ * @since 2016
+ * @version 1.0 http://www.java.globinch.com. All rights reserved
+ */
+public class ZKClientManagerImpl implements ZKManager {
+
+	private static ZooKeeper zkeeper;
+
+	private static ZKConnection zkConnection;
+
+	/**
+	 * 
+	 */
+	public ZKClientManagerImpl() {
+		initialize();
+	}
+
+	/**
+	 * Initialize connection
+	 */
+	private void initialize() {
+		try {
+			zkConnection = new ZKConnection();
+			zkeeper = zkConnection.connect(&quot;localhost&quot;);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	/**
+	 * Close the zookeeper connection
+	 */
+	public void closeConnection() {
+		try {
+			zkConnection.close();
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Override
+	public void create(String path, byte[] data) throws KeeperException,
+			InterruptedException {
+		zkeeper.create(path, data, ZooDefs.Ids.OPEN_ACL_UNSAFE,
+				CreateMode.PERSISTENT);
+
+	}
+
+	@Override
+	public Stat getZNodeStats(String path) throws KeeperException,
+			InterruptedException {
+		Stat stat = zkeeper.exists(path, true);
+		if (stat != null) {
+			System.out.println(&quot;Node exists and the node version is &quot;
+					+ stat.getVersion());
+		} else {
+			System.out.println(&quot;Node does not exists&quot;);
+		}
+		return stat;
+	}
+
+	@Override
+	public Object getZNodeData(String path, boolean watchFlag) throws KeeperException,
+			InterruptedException {
+		
+
+		try {
+
+			Stat stat = getZNodeStats(path);
+			byte[] b = null;
+			if (stat != null) {
+				if(watchFlag){
+					ZKWatcher watch = new ZKWatcher();
+					 b = zkeeper.getData(path, watch,null);
+					 watch.await();
+				}else{
+					 b = zkeeper.getData(path, null,null);
+				}
+				/*byte[] b = zkeeper.getData(path, new Watcher() {
+
+					public void process(WatchedEvent we) {
+
+						if (we.getType() == Event.EventType.None) {
+							switch (we.getState()) {
+							case Expired:
+								connectedSignal.countDown();
+								break;
+							}
+
+						} else {
+
+							try {
+								byte[] bn = zkeeper.getData(path, false, null);
+								String data = new String(bn, &quot;UTF-8&quot;);
+								System.out.println(data);
+								connectedSignal.countDown();
+
+							} catch (Exception ex) {
+								System.out.println(ex.getMessage());
+							}
+						}
+					}
+				}, null);*/
+
+				String data = new String(b, &quot;UTF-8&quot;);
+				System.out.println(data);
+				
+				return data;
+			} else {
+				System.out.println(&quot;Node does not exists&quot;);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public void update(String path, byte[] data) throws KeeperException,
+			InterruptedException {
+		int version = zkeeper.exists(path, true).getVersion();
+		zkeeper.setData(path, data, version);
+
+	}
+
+	@Override
+	public List&lt;String&gt; getZNodeChildren(String path) throws KeeperException,
+			InterruptedException {
+		Stat stat = getZNodeStats(path);
+		List&lt;String&gt; children  = null;
+
+		if (stat != null) {
+			children = zkeeper.getChildren(path, false);
+			for (int i = 0; i &lt; children.size(); i++)
+				System.out.println(children.get(i)); 
+			
+		} else {
+			System.out.println(&quot;Node does not exists&quot;);
+		}
+		return children;
+	}
+
+	@Override
+	public void delete(String path) throws KeeperException,
+			InterruptedException {
+		int version = zkeeper.exists(path, true).getVersion();
+		zkeeper.delete(path, version);
+
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+</pre>
+<h3>Zookeeper Watcher: ZKWatcher.java<a name="ZooKeeper-API-Java-Examples-Watcher"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+/**
+ * 
+ */
+package com.globinch.zoo.client;
+
+import java.util.concurrent.CountDownLatch;
+
+import org.apache.zookeeper.AsyncCallback.StatCallback;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * @author bpaikay
+ *
+ */
+public class ZKWatcher implements Watcher, StatCallback {
+	CountDownLatch latch;
+
+	/**
+	 * 
+	 */
+	public ZKWatcher() {
+		latch = new CountDownLatch(1);
+	}
+
+	@Override
+	public void processResult(int rc, String path, Object ctx, Stat stat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void process(WatchedEvent event) {
+		 System.out.println(&quot;Watcher fired on path: &quot; + event.getPath() + &quot; state: &quot; + 
+                 event.getState() + &quot; type &quot; + event.getType());
+         latch.countDown();
+	}
+		
+	public void await() throws InterruptedException {
+         latch.await();
+     }
+
+}
+
+</pre>
+<h3> Test Out Zookeeper  API example Client<a name="ZooKeeper-API-Java-Examples-Test-Client"></a></h3>
+<pre class="wp-code-highlight prettyprint">
+/*
+ * @(#)ZKClientTest.java
+ * @author Binu George
+ * Globinch.com
+ * copyright http://www.java.globinch.com. All rights reserved.
+ */
+package com.globinch.zoo.client.test;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.data.Stat;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.globinch.zoo.client.ZKClientManagerImpl;
+
+/**
+ * ZKClientTest Test Class
+ * 
+ * @author Binu George
+ * @since 2016
+ * @version 1.0
+ * http://www.java.globinch.com. All rights reserved
+ */
+public class ZKClientTest {
+
+	private static ZKClientManagerImpl zkmanager = new ZKClientManagerImpl();
+	// ZNode Path
+	private String path = &quot;/QN-GBZnode&quot;;
+	byte[] data = &quot;www.java.globinch.com ZK Client Data&quot;.getBytes();
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#create(java.lang.String, byte[])}
+	 * .
+	 * 
+	 * @throws InterruptedException
+	 * @throws KeeperException
+	 */
+	@Test
+	public void testCreate() throws KeeperException, InterruptedException {
+		// data in byte array
+		
+		zkmanager.create(path, data);
+		Stat stat = zkmanager.getZNodeStats(path);
+		assertNotNull(stat);
+		zkmanager.delete(path);
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#getZNodeStats(java.lang.String)}
+	 * .
+	 * 
+	 * @throws InterruptedException
+	 * @throws KeeperException
+	 */
+	@Test
+	public void testGetZNodeStats() throws KeeperException,
+			InterruptedException {
+		zkmanager.create(path, data);
+		Stat stat = zkmanager.getZNodeStats(path);
+		assertNotNull(stat);
+		assertNotNull(stat.getVersion());
+		zkmanager.delete(path);
+
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#getZNodeData(java.lang.String)}
+	 * .
+	 * @throws InterruptedException 
+	 * @throws KeeperException 
+	 */
+	@Test
+	public void testGetZNodeData() throws KeeperException, InterruptedException {
+		zkmanager.create(path, data);
+		String data = (String)zkmanager.getZNodeData(path,false);
+		assertNotNull(data);
+		zkmanager.delete(path);
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#update(java.lang.String, byte[])}
+	 * .
+	 * @throws InterruptedException 
+	 * @throws KeeperException 
+	 */
+	@Test
+	public void testUpdate() throws KeeperException, InterruptedException {
+		zkmanager.create(path, data);
+		String data = &quot;www.java.globinch.com Updated Data&quot;;
+		byte[] dataBytes = data.getBytes();
+		zkmanager.update(path, dataBytes);
+		String retrivedData = (String)zkmanager.getZNodeData(path,false);
+		assertNotNull(retrivedData);
+		zkmanager.delete(path);
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#getZNodeChildren(java.lang.String)}
+	 * .
+	 * @throws InterruptedException 
+	 * @throws KeeperException 
+	 */
+	@Test
+	public void testGetZNodeChildren() throws KeeperException, InterruptedException {
+		zkmanager.create(path, data);
+		List&lt;String&gt; children= zkmanager.getZNodeChildren(path);
+		assertNotNull(children);
+		zkmanager.delete(path);
+	}
+
+	/**
+	 * Test method for
+	 * {@link com.globinch.zoo.client.ZKClientManagerImpl#delete(java.lang.String)}
+	 * .
+	 * @throws InterruptedException 
+	 * @throws KeeperException 
+	 */
+	@Test
+	public void testDelete() throws KeeperException, InterruptedException {
+		zkmanager.create(path, data);
+		zkmanager.delete(path);
+		Stat stat = zkmanager.getZNodeStats(path);
+		assertNull(stat);
+	}
+
+}
+
+</pre>
+<h2>Apache Zookeeper Use Cases :Where and how to use it<a name="Apache-ZooKeeper-Use-cases"></a></h2>
+<p>ZooKeeper offers the library to create and manage synchronization primitives.Since it is a distributed service,ZooKeeper avoids the single-point-of-failure. Typical use cases includes Leader Election implementation, Distributed Locks implementation, Barrier implementation etc. Any system that needs a centralized reliable service to manage its configuration across distributed environment can make use of ZooKeeper.<br />
+Mainly, you will find ZooKeeper ideal choice for the following typical use cases.</p>
+<ol>
+<li>Naming service</li>
+<li>Configuration management</li>
+<li>Synchronization</li>
+<li>Leader election</li>
+<li>Message Queue</li>
+<li>Notification system</li>
+</ol>
+<p>Here are a list of most popular examples where Apache ZooKeeper is used.</p>
+<ol>
+<li>Apache Hadoop relies on ZooKeeper for automatic fail-over of Hadoop HDFS Namenode and for the high availability of YARN ResourceManager.</li>
+<li>Apache HBase, a distributed database built on Hadoop, uses ZooKeeper for master election, lease management etc.</li>
+<li>Apache Solr uses ZooKeeper for leader election and centralized configuration</li>
+</ol>
+<h2>Apache Zookeeper Alternatives<a name="Apache-ZooKeeper-Alternatives"></a></h2>
+<p>ZooKeeper is used by extensively and is definitly the most popular cluster co-ordiation solution. There are other services with more or less same features.</p>
+<ol>
+<li><a href="https://coreos.com/etcd/" target="_blank" rel="nofollow">etcd </a></li>
+<li><a href="https://github.com/Netflix/eureka" target="_blank" rel="nofollow">Eureka &#8211; Netflix</a> </li>
+<li><a href="https://www.consul.io/" target="_blank" rel="nofollow">Consul</a></li>
+</ol>
+<h3> History of Zookeeper <a name="Apache-ZooKeeper-history"/></h3>
+<p>Zookeeper is originally developed by Yahoo research Team and became a top level Apache project.ZooKeeper is used by many enterprises including Rackspace, Yahoo! and eBay.</p>
+<h3>References<a name="references"></a></h3>
+<ol>
+<li><a href="https://zookeeper.apache.org/" target="_blank" rel="nofollow">Apache ZooKeeper</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.3.5/javaExample.html" target="_blank" rel="nofollow">Apache Zookeeper Examples</a></li>
+<li><a href="https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html" target="_blank" rel="nofollow">ZooKeeper Programmer&#8217;s Guide</a></li>
+<li><a href="http://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed" target="_blank" rel="nofollow">Eric Brewer CAP Twelve Years Later: How the &#8220;Rules&#8221; Have Changed</a></li>
+</ol>
+<div class="flare-horizontal flare-position-bottom flare-backgroundcolor-light enablecounters enabletotal" data-humbleflarecount="2">
+    <span class="loading"><span></span></span>
+    <span class="flare-total first"><strong>8</strong> Flares</span>
+    
+                    <span data-type="twitter" class="flare-button button-type-twitter flare-iconstyle-round-bevel first" style="background-color:#00aced;z-index:5">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Twitter</span>
+            </span>
+        </span>
+        <span class="flare-button-count">0</span>
+            
+        <span class="flare-flyout flare-flyout-twitter first">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;a href=&quot;https://twitter.com/share&quot; class=&quot;twitter-share-button&quot;  data-via=&quot;globinch&quot; &gt;Tweet&lt;/a&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&quot;//platform.twitter.com/widgets.js&quot;;fjs.parentNode.insertBefore(js,fjs);}}(document,&quot;script&quot;,&quot;twitter-wjs&quot;);&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="facebook" class="flare-button button-type-facebook flare-iconstyle-round-bevel" style="background-color:#0b59aa;z-index:4">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Facebook</span>
+            </span>
+        </span>
+        <span class="flare-button-count">2</span>
+            
+        <span class="flare-flyout flare-flyout-facebook">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;iframe src=&quot;//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; style=&quot;border:none; overflow:hidden; width:120px; height:21px;&quot; allowTransparency=&quot;true&quot;&gt;&lt;/iframe&gt;"></span>
+        </span>
+        
+                    <span data-type="googleplus" class="flare-button button-type-googleplus flare-iconstyle-round-bevel" style="background-color:#d84d2f;z-index:3">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Google+</span>
+            </span>
+        </span>
+        <span class="flare-button-count">6</span>
+            
+        <span class="flare-flyout flare-flyout-googleplus">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;g:plusone&gt;&lt;/g:plusone&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  (function() {
+    var po = document.createElement(&quot;script&quot;); po.type = &quot;text/javascript&quot;; po.async = true;
+    po.src = &quot;https://apis.google.com/js/plusone.js&quot;;
+    var s = document.getElementsByTagName(&quot;script&quot;)[0]; s.parentNode.insertBefore(po, s);
+  })();
+&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="linkedin" class="flare-button button-type-linkedin flare-iconstyle-round-bevel" style="background-color:#0375b3;z-index:2">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">LinkedIn</span>
+            </span>
+        </span>
+        <span class="flare-button-count">0</span>
+            
+        <span class="flare-flyout flare-flyout-linkedin">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script type=&quot;IN/Share&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;"></span>
+        </span>
+        
+                    <span data-type="email" class="flare-button button-type-email flare-iconstyle-round-bevel" style="background-color:#f2d446;z-index:1">
+            <span class="flare-button-wrap">
+                <span class="flare-button-icon">Email</span>
+            </span>
+        </span>
+        <span class="flare-button-count">--</span>
+            
+        <span class="flare-flyout flare-flyout-email">
+            <span class="flare-flyout-inner">
+                <span class="flare-arrow"></span>
+            </span>
+            <span class="flare-iframe-wrapper" data-code-snippet="&lt;a href=&quot;mailto:?body=Check%20out%20this%20article%20I%20found%20on%20Globinch%20Java%20Forum%3A%0D%0A%0D%0AApache%20Zookeeper%20Explained%3A%20Tutorial%2C%20Use%20Cases%20and%20Zookeeper%20Java%20API%20Examples%0D%0Ahttp%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&amp;subject=Check%20out%20this%20article%20I%20found%20on%20Globinch%20Java%20Forum&quot; title=&quot;Email to a friend&quot; target=&quot;_blank&quot;&gt;Email to a friend&lt;/a&gt;"></span>
+        </span>
+        
+        
+            <span data-type="filament" class="flare-button button-type-filament flare-iconstyle-round-bevel last" style="background-color:#9848b5;z-index:0">
+        <span class="flare-button-wrap">
+            <span class="flare-button-icon">Filament.io</span>
+        </span>
+    </span>
+        
+    <span class="flare-flyout flare-flyout-filament">
+        <span class="flare-flyout-inner">
+            <span class="flare-arrow"></span>
+        </span>
+        <span class="flare-iframe-wrapper" data-code-snippet='<a href="https://filament.io/applications/flare?utm_source=flare_wp&utm_medium=deployment&utm_content=flarebar&utm_campaign=filament" target="_blank">Made with <strong>Flare</strong> <span>More Info</span></a>'></span>
+    </span>
+    
+    <span class="flare-total last"><strong>8</strong> Flares</span>
+
+    <span class="close">
+        <a href="#close">&#215;</a>
+    </span>
+</div></span>  </header>
+					<span class="postmeta_box">
+		<span class="auth"> <span itemprop="datePublished" class="timestamp updated">January 30, 2016</span>  <span class="author vcard" itemprop="author" itemtype="http://schema.org/Person"><span class="fn"><a href="https://plus.google.com/+BinuGeorgeP?rel=author">Binu George</a></span><span class="org" style="display:none">Globinch.com</span><span class="role" style="display:none">Java Technical Architect</span></span></span><span itemprop="articleSection" class="postcateg"><a href="http://java.globinch.com/category/enterprise-services/zookeeper/" rel="category tag">Zookeeper</a></span><span class="comp"><a href="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/#respond">No Comment</a></span>			 <span class="tags"><a href="http://java.globinch.com/tag/apache-zookeeper/" rel="tag">Apache Zookeeper</a>, <a href="http://java.globinch.com/tag/apache-zookeeper-alternatives/" rel="tag">apache zookeeper alternatives</a>, <a href="http://java.globinch.com/tag/apache-zookeeper-tutorial/" rel="tag">apache zookeeper tutorial</a>, <a href="http://java.globinch.com/tag/apache-zookeeper-use-cases/" rel="tag">apache zookeeper use cases</a>, <a href="http://java.globinch.com/tag/explaining-apache-zookeeper/" rel="tag">explaining apache zookeeper</a>, <a href="http://java.globinch.com/tag/zookeeper/" rel="tag">zookeeper</a></span>				</span><!-- .entry-header -->
+	<div class="gap"></div><div id="author-bio">
+	<h3>About  <a href="https://plus.google.com/+BinuGeorgeP?rel=author">Binu George</a></h3>
+<img alt='' src='http://2.gravatar.com/avatar/baf4c516a7a80ecbad201a1af17db2df?s=64&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/baf4c516a7a80ecbad201a1af17db2df?s=128&amp;d=mm&amp;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' />                               
+</div>
+	
+				<div id="single-nav" class="clearfix">
+		<div id="single-nav-left">&laquo;<strong><a href="http://java.globinch.com/enterprise-java/web-services/rest-api-versioning-uri-media-type-header-versioning-strategies/" rel="prev">REST API Versioning: URI and Media Type-Header Versioning Strategies</a></strong></div>
+		<div id="single-nav-right"></div>
+        </div>
+					
+        <!-- END single-nav -->
+			<div class="comments">	<div id="comment_pager">
+<div id="comments" class="comments-area">
+
+	
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://java.globinch.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='341' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0a36252e86" /></p><small>Paged comment generated by <a href='http://mr.hokya.com/ajax-comment-page/' target='_blank'>AJAX Comment Page</a></small>
+<noscript>Please enable javascript to use AJAX Comment Page</noscript>
+<script src='http://java.globinch.com/wp-content/plugins/ajax-comment-page/jquery.js'></script>
+<!-- AJAX Comment Page: created by http://mr.hokya.com/ -->
+<script src='http://java.globinch.com/wp-content/plugins/ajax-comment-page/js.php?max=5'></script>
+</div><script type="text/javascript"><!--
+$('commentform').onsubmit = ajax_comments_submit;
+//--></script>
+<p class="wysija-after-comment"><label for="wysija-box-after-comment"><input type="checkbox" id="wysija-box-after-comment" value="1" name="wysija[comment_subscribe]">Yes, add me to Globinch Java Forum mailing list.</label></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="202"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+	</div> <!-- end div .comments -->	</article> <!-- end div .post -->
+									<div id="footerads">
+</div>
+		</div> <!-- end div #content -->
+<div id="sidebar">	
+<div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">Search Articles</h4><form method="get" id="searchform" action="http://java.globinch.com/">
+	<div>
+	<input type="text" value="Search" name="s" id="s" onfocus="if (this.value == 'Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" />
+		<input type="submit" id="searchsubmit" value="Go" />
+	</div>
+</form>
+</div></div><div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">Subscribe Java EE Newsletter</h4><div class="widget_wysija_cont"><div id="msg-form-wysija-3" class="wysija-msg ajax"></div><form id="form-wysija-3" method="post" action="#wysija" class="widget_wysija">
+
+Subscribe to our newsletter and join our 163 subscribers.
+<hr />
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Email Address" placeholder="Email Address" value="" />
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value="" />
+    </span>
+    
+</p>
+<input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!" />
+
+    <input type="hidden" name="form_id" value="1" />
+    <input type="hidden" name="action" value="save" />
+    <input type="hidden" name="controller" value="subscribers" />
+    <input type="hidden" value="1" name="wysija-page" />
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="1" />
+    
+ </form></div></div></div><div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">We are on Facebook</h4><div class="fb-social-plugin fb-like-box" data-href="https://www.facebook.com/pages/Globinch-Java-Forum/1526214284283726" data-show-faces="true" data-stream="false"></div></div></div><div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">Topics</h4>		<ul>
+	<li class="cat-item cat-item-37"><a href="http://java.globinch.com/category/architecture/" title="Enterprise and Technical Architecture">Architecture</a>
+<ul class='children'>
+	<li class="cat-item cat-item-40"><a href="http://java.globinch.com/category/architecture/architecture-patterns-styles/" title="Architecture Patterns">Architecture Patterns &amp; Styles</a>
+	<ul class='children'>
+	<li class="cat-item cat-item-119"><a href="http://java.globinch.com/category/architecture/architecture-patterns-styles/rest-hateoas/" >REST-HATEOAS</a>
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://java.globinch.com/category/architecture/architecture-tips/" >Architecture Tips</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-36"><a href="http://java.globinch.com/category/enterprise-java/" title="Enterprise Java and JEE">Enterprise Java</a>
+<ul class='children'>
+	<li class="cat-item cat-item-42"><a href="http://java.globinch.com/category/enterprise-java/jsf/" title="Java Server Faces">JSF</a>
+</li>
+	<li class="cat-item cat-item-82"><a href="http://java.globinch.com/category/enterprise-java/security/" >Security</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="http://java.globinch.com/category/enterprise-java/web-services/" >Web Services</a>
+	<ul class='children'>
+	<li class="cat-item cat-item-118"><a href="http://java.globinch.com/category/enterprise-java/web-services/hateoas/" >HATEOAS</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://java.globinch.com/category/enterprise-java/web-services/jax-ws/" >JAX-WS</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://java.globinch.com/category/enterprise-java/web-services/rest-jax-rs/" >REST &amp; JAX-RS</a>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-129"><a href="http://java.globinch.com/category/enterprise-services/" >Enterprise Services</a>
+<ul class='children'>
+	<li class="cat-item cat-item-130"><a href="http://java.globinch.com/category/enterprise-services/zookeeper/" >Zookeeper</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-38"><a href="http://java.globinch.com/category/patterns/" title="Design Patterns and Architecture Patterns">Patterns</a>
+<ul class='children'>
+	<li class="cat-item cat-item-39"><a href="http://java.globinch.com/category/patterns/design-patterns/" title="Core Java and JEE Design Patterns">Design Patterns</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://java.globinch.com/category/java-quick-tips/" title="Quick Java Tips on language and performance ">Quick Tips</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://java.globinch.com/category/tools/" title="Java IDEs,Tools and Tips">Tools</a>
+</li>
+		</ul>
+</div></div><div class="box clearfloat"><div class="boxinside clearfloat">			<div class="textwidget"><!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- Place this tag where you want the widget to render. -->
+<div class="g-person" data-width="290" data-href="//plus.google.com/u/0/117341404717640025660" data-layout="landscape" data-rel="author"></div></div>
+		</div></div>	</div>	<!-- end div #sidebar -->
+<div id="sidebar2">	
+<div id="share">
+	 
+
+		<a href="https://plus.google.com/+BinuGeorgeP?rel=author"><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/googleplus.jpg" alt="Google+ Plus" width="48" height="48"/></a>
+	 
+		<a href=""><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/twitter.jpg" alt="Follow on Twitter" width="48" height="48"/></a>
+	 
+
+	<a href="https://www.facebook.com/EnterpriseJavaArchitect"><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/facebook.jpg" alt="Like On Facebook" width="48" height="48"/></a>
+	 
+
+	<a href="http://www.linkedin.com/in/georgebinu/"><img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/linkedin.jpg" alt="Linked Follow" width="48" height="48"/></a>
+	 
+
+	
+	
+
+	
+	
+	
+</div> 
+	
+<h4>Popular post</h4>
+								<div class="latest-post">
+									<img width="150" height="64" src="http://java.globinch.com/wp-content/uploads/2013/04/JAX-WS-Web-Services-and-Clients.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="JAX-WS Web Services and Clients" /> 
+									 <a title="Java JAX-WS Tutorial: Develop Web Services and Clients (Consumers) Using JAX-WS" href="http://java.globinch.com/enterprise-java/web-services/jax-ws/java-jax-ws-tutorial-develop-web-services-clients-consumers/" rel="bookmark">Java JAX-WS Tutorial: Develop Web Services and Clients (Consumers) Using JAX-WS</a><br />
+									 <div class="clear"></div>
+								</div>			
+															<div class="latest-post">
+									<img width="150" height="80" src="http://java.globinch.com/wp-content/uploads/2013/05/jax-ws-usernametoken-example1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="jax-ws usernametoken example" /> 
+									 <a title="JAX-WS and Secure Java Web Services using UsernameToken : WS-Security with Metro and WSIT" href="http://java.globinch.com/enterprise-java/web-services/jax-ws/secure-usernametoken-java-web-services-using-metro-wsit/" rel="bookmark">JAX-WS and Secure Java Web Services using UsernameToken : WS-Security with Metro and WSIT</a><br />
+									 <div class="clear"></div>
+								</div>			
+															<div class="latest-post">
+									<img width="150" height="70" src="http://java.globinch.com/wp-content/uploads/2013/05/JAX-WS-exception-fault-example.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="JAX-WS exception fault handling example" /> 
+									 <a title="JAX-WS Exceptions and Faults: Annotation, Exception and Fault Handling Examples" href="http://java.globinch.com/enterprise-java/web-services/jax-ws/jax-ws-exceptions-faults-annotation-exception-and-fault-handling-examples/" rel="bookmark">JAX-WS Exceptions and Faults: Annotation, Exception and Fault Handling Examples</a><br />
+									 <div class="clear"></div>
+								</div>			
+															<div class="latest-post">
+									<img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/thumb.jpg" />
+ 
+									 <a title="SOAP Binding: Difference between Document and RPC Style Web Services" href="http://java.globinch.com/enterprise-java/web-services/soap-binding-document-rpc-style-web-services-difference/" rel="bookmark">SOAP Binding: Difference between Document and RPC Style Web Services</a><br />
+									 <div class="clear"></div>
+								</div>			
+															<div class="latest-post">
+									<img src="http://java.globinch.com/wp-content/themes/wrock-metro/images/thumb.jpg" />
+ 
+									 <a title="How to Fix  :  java.security.cert.CertificateException: No name matching localhost found" href="http://java.globinch.com/enterprise-java/security/fix-java-security-certificate-exception-no-matching-localhost-found/" rel="bookmark">How to Fix  :  java.security.cert.CertificateException: No name matching localhost found</a><br />
+									 <div class="clear"></div>
+								</div>			
+								<div style="clear:both;"></div>
+			<div class="box clearfloat"><div class="boxinside clearfloat">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+					<li>
+				<a href="http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/">Apache Zookeeper Explained: Tutorial, Use Cases and Zookeeper Java API Examples</a>
+						</li>
+					<li>
+				<a href="http://java.globinch.com/enterprise-java/web-services/rest-api-versioning-uri-media-type-header-versioning-strategies/">REST API Versioning: URI and Media Type-Header Versioning Strategies</a>
+						</li>
+					<li>
+				<a href="http://java.globinch.com/enterprise-java/web-services/rest-jax-rs/hateoas-hypermedia-aware-services-clients-rest-constraint/">HATEOAS and Hypermedia Aware Services And Clients :REST</a>
+						</li>
+					<li>
+				<a href="http://java.globinch.com/enterprise-java/security/pkix-path-building-failed-validation-sun-security-validatorexception/">How To Fix: PKIX Path Building Failed (Validation) : sun.security.validator.ValidatorException</a>
+						</li>
+					<li>
+				<a href="http://java.globinch.com/patterns/design-patterns/strategy-design-pattern-and-single-responsibility-open-closed-principles/">Strategy Design Pattern and Single Responsibility and Open-Closed Principles</a>
+						</li>
+				</ul>
+		</div></div>		<div class="box clearfloat"><div class="boxinside clearfloat">			<div class="textwidget"><p><a href="https://plus.google.com/117341404717640025660?rel=author">Google+</a></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+</div>
+		</div></div><div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">Popular Search Terms</h4><ul><li><a href="http://java.globinch.com/enterprise-java/web-services/jax-ws/secure-usernametoken-java-web-services-using-metro-wsit/" title="JAX-WSandSecureJavaWebServicesusingUsernameToken:WS-SecuritywithMetroandWSIT">JAX-WSandSecureJavaWebServicesusingUsernameToken:WS-SecuritywithMetroandWSIT</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/jax-ws/java-jax-ws-tutorial-develop-web-services-clients-consumers/" title="JavaJAX-WSTutorial:DevelopWebServicesandClients(Consumers)UsingJAX-WS">JavaJAX-WSTutorial:DevelopWebServicesandClients(Consumers)UsingJAX-WS</a></li><li><a href="http://java.globinch.com/enterprise-java/security/fix-java-security-certificate-exception-no-matching-localhost-found/" title="java security cert certificateexception: no name matching localhost found">java security cert certificateexception: no name matching localhost found</a></li><li><a href="http://java.globinch.com/enterprise-java/security/pkix-path-building-failed-validation-sun-security-validatorexception/" title="pkix path building failed">pkix path building failed</a></li><li><a href="http://java.globinch.com/enterprise-java/security/fix-java-security-certificate-exception-no-matching-localhost-found/" title="java security cert CertificateException">java security cert CertificateException</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/soap-binding-document-rpc-style-web-services-difference/" title="SOAPBinding:DifferencebetweenDocumentandRPCStyleWebServices">SOAPBinding:DifferencebetweenDocumentandRPCStyleWebServices</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/jax-ws/java-jax-ws-tutorial-develop-web-services-clients-consumers/" title="Attributes portName serviceName and endpointInterface are not allowed in the @WebService annotation">Attributes portName serviceName and endpointInterface are not allowed in the @WebService annotation</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/jax-ws/java-jax-ws-tutorial-develop-web-services-clients-consumers/" title="java globinch com">java globinch com</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/jax-ws/java-jax-ws-tutorial-develop-web-services-clients-consumers/" title="content">content</a></li><li><a href="http://java.globinch.com/enterprise-java/web-services/soap-binding-document-rpc-style-web-services-difference/" title="document style vs rpc style @webservice">document style vs rpc style @webservice</a></li></ul></div></div><div class="box clearfloat"><div class="boxinside clearfloat"><h4 class="widgettitle">Tags</h4><div class="tagcloud"><a href='http://java.globinch.com/tag/access-restriction/' class='tag-link-26' title='1 topic' style='font-size: 8pt;'>Access restriction</a>
+<a href='http://java.globinch.com/tag/deprecatedapi/' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>DeprecatedAPI</a>
+<a href='http://java.globinch.com/tag/difference-between-string-and-stringbuffer-with-example/' class='tag-link-86' title='1 topic' style='font-size: 8pt;'>difference between string and stringbuffer with example</a>
+<a href='http://java.globinch.com/tag/document-style-rpc/' class='tag-link-55' title='1 topic' style='font-size: 8pt;'>document style rpc</a>
+<a href='http://java.globinch.com/tag/eclipse-ide/' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>Eclipse IDE</a>
+<a href='http://java.globinch.com/tag/eclipse-ide-error/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>Eclipse IDE Error</a>
+<a href='http://java.globinch.com/tag/encrypt-sign-usernametoken/' class='tag-link-79' title='1 topic' style='font-size: 8pt;'>encrypt sign usernametoken</a>
+<a href='http://java.globinch.com/tag/forbidden-reference/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>Forbidden reference</a>
+<a href='http://java.globinch.com/tag/java-jax-ws/' class='tag-link-48' title='2 topics' style='font-size: 12.581818181818pt;'>java jax-ws</a>
+<a href='http://java.globinch.com/tag/jax-ws-attachment/' class='tag-link-66' title='1 topic' style='font-size: 8pt;'>jax-ws attachment</a>
+<a href='http://java.globinch.com/tag/jax-ws-client/' class='tag-link-50' title='1 topic' style='font-size: 8pt;'>jax-ws client</a>
+<a href='http://java.globinch.com/tag/jax-ws-logging/' class='tag-link-80' title='1 topic' style='font-size: 8pt;'>jax-ws logging</a>
+<a href='http://java.globinch.com/tag/jax-ws-tutorial/' class='tag-link-51' title='4 topics' style='font-size: 18.181818181818pt;'>jax-ws tutorial</a>
+<a href='http://java.globinch.com/tag/jax-ws-web-service/' class='tag-link-49' title='6 topics' style='font-size: 22pt;'>jax-ws web service</a>
+<a href='http://java.globinch.com/tag/jax-ws-web-service-request-response-logging/' class='tag-link-81' title='1 topic' style='font-size: 8pt;'>jax-ws web service request response logging</a>
+<a href='http://java.globinch.com/tag/jaxws-wsimport/' class='tag-link-53' title='1 topic' style='font-size: 8pt;'>jaxws wsimport</a>
+<a href='http://java.globinch.com/tag/jsf-page-forward/' class='tag-link-43' title='1 topic' style='font-size: 8pt;'>JSF Page Forward</a>
+<a href='http://java.globinch.com/tag/jsf-page-redirect/' class='tag-link-44' title='1 topic' style='font-size: 8pt;'>JSF Page Redirect</a>
+<a href='http://java.globinch.com/tag/jsf-url-does-not-refresh/' class='tag-link-45' title='1 topic' style='font-size: 8pt;'>jsf url does not refresh</a>
+<a href='http://java.globinch.com/tag/metro-secure-web-services/' class='tag-link-76' title='1 topic' style='font-size: 8pt;'>metro secure web services</a>
+<a href='http://java.globinch.com/tag/mtom-attachment/' class='tag-link-62' title='1 topic' style='font-size: 8pt;'>mtom attachment</a>
+<a href='http://java.globinch.com/tag/mtom-example/' class='tag-link-63' title='1 topic' style='font-size: 8pt;'>mtom example</a>
+<a href='http://java.globinch.com/tag/mtom-java/' class='tag-link-61' title='1 topic' style='font-size: 8pt;'>mtom java</a>
+<a href='http://java.globinch.com/tag/mtom-jax-ws-tutorial/' class='tag-link-65' title='1 topic' style='font-size: 8pt;'>mtom jax-ws tutorial</a>
+<a href='http://java.globinch.com/tag/mtom-soap/' class='tag-link-64' title='1 topic' style='font-size: 8pt;'>mtom soap</a>
+<a href='http://java.globinch.com/tag/mtom-web-service/' class='tag-link-60' title='1 topic' style='font-size: 8pt;'>mtom web service</a>
+<a href='http://java.globinch.com/tag/restricted-api/' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>restricted API</a>
+<a href='http://java.globinch.com/tag/rpc-document-literal/' class='tag-link-58' title='1 topic' style='font-size: 8pt;'>rpc document literal</a>
+<a href='http://java.globinch.com/tag/rpc-style/' class='tag-link-59' title='1 topic' style='font-size: 8pt;'>rpc style</a>
+<a href='http://java.globinch.com/tag/rpc-vs-document/' class='tag-link-56' title='1 topic' style='font-size: 8pt;'>rpc vs document</a>
+<a href='http://java.globinch.com/tag/secure-web-service-client/' class='tag-link-75' title='2 topics' style='font-size: 12.581818181818pt;'>secure web service client</a>
+<a href='http://java.globinch.com/tag/secure-web-service-java/' class='tag-link-74' title='2 topics' style='font-size: 12.581818181818pt;'>secure web service java</a>
+<a href='http://java.globinch.com/tag/soap-rpc-document/' class='tag-link-57' title='1 topic' style='font-size: 8pt;'>soap rpc document</a>
+<a href='http://java.globinch.com/tag/usernametoken-java-client/' class='tag-link-70' title='1 topic' style='font-size: 8pt;'>usernametoken java client</a>
+<a href='http://java.globinch.com/tag/usernametoken-java-example/' class='tag-link-69' title='2 topics' style='font-size: 12.581818181818pt;'>usernametoken java example</a>
+<a href='http://java.globinch.com/tag/usernametoken-jax-ws-client/' class='tag-link-71' title='2 topics' style='font-size: 12.581818181818pt;'>usernametoken jax-ws client</a>
+<a href='http://java.globinch.com/tag/usernametoken-jax-ws-example/' class='tag-link-72' title='1 topic' style='font-size: 8pt;'>usernametoken jax-ws example</a>
+<a href='http://java.globinch.com/tag/usernametoken-soap-header/' class='tag-link-73' title='1 topic' style='font-size: 8pt;'>usernametoken soap header</a>
+<a href='http://java.globinch.com/tag/usernametoken-ws-security-example/' class='tag-link-68' title='1 topic' style='font-size: 8pt;'>usernametoken ws-security example</a>
+<a href='http://java.globinch.com/tag/web-service-exception/' class='tag-link-84' title='1 topic' style='font-size: 8pt;'>web service exception</a>
+<a href='http://java.globinch.com/tag/web-services-2/' class='tag-link-83' title='1 topic' style='font-size: 8pt;'>web services</a>
+<a href='http://java.globinch.com/tag/web-services-encryption/' class='tag-link-77' title='2 topics' style='font-size: 12.581818181818pt;'>web services encryption</a>
+<a href='http://java.globinch.com/tag/web-services-signature/' class='tag-link-78' title='1 topic' style='font-size: 8pt;'>web services signature</a>
+<a href='http://java.globinch.com/tag/wsgen/' class='tag-link-54' title='1 topic' style='font-size: 8pt;'>wsgen</a>
+<a href='http://java.globinch.com/tag/wsimport/' class='tag-link-52' title='1 topic' style='font-size: 8pt;'>wsimport</a></div>
+</div></div>	
+
+</div> <!-- end div #sidebar -->	<!--WP Code Highlight_start-->
+	<script type="text/javascript">
+		window.onload = function(){prettyPrint();};
+	</script>
+	<script type="text/javascript" src="http://java.globinch.com/wp-content/plugins/wp-code-highlight/js/wp-code-highlight.js"></script>
+	<!--WP Code Highlight_end-->
+</div></div>
+<div id="bottom-menu">
+<div id="bottom-menu-inner" class="clearfix">
+<div id="bottom-menu-1">
+	</div>
+<div id="bottom-menu-2">
+		</div>
+<div id="bottom-menu-3">
+	</div> 
+<div id="bottom-menu-4">
+		</div> 
+</div> 
+</div>
+	
+<div id="footer">
+	<div id="footer-inner" class="clearfix">
+<a href="http://java.globinch.com/" title="Globinch Java Forum" >Globinch Java Forum</a> &#169; 2013-2015 | Published by <a href="https://plus.google.com/+BinuGeorgeP?rel=publisher">Binu George</a> & Powered by <a href="http://wordpress.org/">WordPress</a>
+ 	<a href="#" class="scrollup">&#8593;<a>
+
+	</div> <!-- end div #footer-inner -->
+	</div> <!-- end div #footer -->
+	<!-- END FOOTER -->
+		</br></div> <!-- end wrapper -->
+<script type="text/javascript">var gc_height = 40; gc_status = "close"; gc_animating = false;</script><a id="gc_message_bar_open" class="right light bottom " ><span class="icon"></span></a><div id="gc_message_bar" class="gc_message_bar_bottom"><div id="gc_message_bar_layout"><div id="gc_message_bar_wrapper"><div id="gc_message_bar_content" class="content"><div id="gc_mailpoet_ex" class="embed">
+                    <div class="default" id="gc_mailpoet_ex_default"><div class="message">Subscribe to Enterprise Java newsletter</div>
+                        <div class="subscription-wrapper">
+                            <div id="gc_mailpoet_ex_not_filled" class="not-filled" style="display:none;">Email address is required</div>
+                            <div id="gc_mailpoet_ex_not_valid_email" class="not-valid-email" style="display:none;">Invalid email address</div>
+                            <div class="the-input"><input type="text" id="gc_mailpoet_ex_email" name="gc_mailpoet_ex[email]" value="" placeholder="Email address"/></div>
+                        </div><a id="gc_message_bar_button_a" class="button" onclick="return gc_message_bar_subscribe_click();"><span id="gc_message_bar_button"><span id="gc_message_bar_buttontext">Subscribe</span></span></a></div><div id="gc_mailpoet_ex_success" class="success" style="display:none;">Check your inbox now to confirm your subscription.
+                    </div>
+                    <div id="gc_mailpoet_ex_error" class="already-exists" style="display:none;">Oops! You're already subscribed.
+                    </div></div><a id="gc_message_bar_close" class="right light bottom " ><span class="icon"></span></a></div><script type="text/javascript">
+        function gc_message_bar_subscribe_click(e){
+            var params = { gc_mailpoet_ex_type:"gc_message_bar" };
+            var error_not_filled = jQuery("#gc_mailpoet_ex_not_filled");
+            var error_not_valid_email = jQuery("#gc_mailpoet_ex_not_valid_email");
+            error_not_filled.hide();
+            error_not_valid_email.hide();
+            var email = jQuery("#gc_mailpoet_ex_email").val();
+            var validation_error = false;
+            if(email == ""){
+                error_not_filled.show();
+                validation_error = true;
+                return false;
+            }
+            var regex= /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i;
+            if(!email.match(regex)){
+                error_not_valid_email.show();
+                validation_error = true;
+            } else{
+                params.gc_mailpoet_ex_email = email;
+            }
+            if(validation_error){
+                return false;
+            }
+            jQuery.get("http://java.globinch.com/enterprise-services/zookeeper/apache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples/",params,function(e){
+                if(e.type == undefined){
+                    return;
+                }
+                var message = jQuery("#gc_mailpoet_ex_default");
+                message.hide();
+                if(e.type == "success"){
+                    var response = jQuery("#gc_mailpoet_ex_success");
+                    response.show();
+                                        
+                    return;
+                }
+                if(e.type == "error"){
+                    var response = jQuery("#gc_mailpoet_ex_error");
+                    response.show();
+                    return;
+                }
+            });
+        }
+        </script></div></div></div><script type="text/javascript">
+			var GC = {};
+			GC.Sticky = {
+				Pos : 0,
+				Scroll : function() {
+					var sticky = jQuery("#sticky");
+					if(sticky.length == 0){
+						return;
+					}
+					
+					if (window.pageYOffset > GC.Sticky.Pos) {
+						sticky.addClass("stickystyle");
+						jQuery("#navbar-height").addClass("show");
+					} else {
+						sticky.removeClass("stickystyle");
+						jQuery("#navbar-height").removeClass("show");
+					}
+				},
+				CreatePos: function () {
+					var sticky = jQuery("#sticky");
+					if(sticky.length == 0){
+						return;
+					}
+					if (jQuery("body").hasClass("adminbar")) {
+						return sticky.offset().top - jQuery("#wpadminbar").height();
+					} else {
+						return sticky.offset().top;
+					}
+				},
+				Init : function(){
+					GC.Sticky.Pos = GC.Sticky.CreatePos();
+					jQuery(window).scroll(GC.Sticky.Scroll);
+				}
+			};
+			Gc_MessageBar_MarginCleaner = function(){
+				var tmp_margin_top = jQuery("html").css("margin-top");
+				jQuery("style[media='screen']").each(function(){
+					if(jQuery(this).text().indexOf("html { margin-top: 28px !important; }") > 0){
+						jQuery(this).text(jQuery(this).text().replace("html { margin-top: 28px !important; }","html { margin-top: 28px; }"));
+					}
+					if(jQuery(this).text().indexOf("html { margin-top: 32px !important; }") > 0){
+						jQuery(this).text(jQuery(this).text().replace("html { margin-top: 32px !important; }","html { margin-top: 32px; }"));
+					}
+					if(jQuery(this).text().indexOf("html { margin-top: 46px !important; }") > 0){
+						jQuery(this).text(jQuery(this).text().replace("html { margin-top: 46px !important; }","html { margin-top: 46px; }"));	
+					}
+				});
+			};
+
+			jQuery(document).ready(function() {
+				Gc_MessageBar_MarginCleaner();
+				GC.Sticky.Init();
+				var GC_Message_Bar_htmlMarginTop = (jQuery("html").css("margin-top")) ? (jQuery("html").css("margin-top")) : 0;
+				var GC_Message_Bar_htmlMarginBottom = (jQuery("html").css("margin-bottom")) ? (jQuery("html").css("margin-bottom")) : 0;
+				var GC_Message_Bar_OpenTop = parseInt(jQuery("#gc_message_bar_open").css("top"),10);
+				var GC_Message_Bar_OpenTop_opened = GC_Message_Bar_OpenTop + parseInt(jQuery("#gc_message_bar_open").height(),10);
+				var GC_Message_Bar_OpenBottom = parseInt(jQuery("#gc_message_bar_open").css("bottom"),10);
+				var GC_Message_Bar_OpenBottom_opened = GC_Message_Bar_OpenBottom + parseInt(jQuery("#gc_message_bar_open").height(),10);function openMessageBar() {
+				if (gc_status == "open" || gc_animating == true) {
+					return false;
+				}
+				gc_status = "open"; gc_animating = true;
+				jQuery("#gc_message_bar_open")
+					.animate({
+						"bottom": parseInt(jQuery("#gc_message_bar_open").css("bottom"),10) -  parseInt(jQuery("#gc_message_bar_open").height(),10)}, 
+							300, 
+							"swing", 
+							function() {gc_animating = false;});
+					
+				jQuery("#gc_message_bar")
+					.delay(400)
+					.animate({"bottom": parseInt(jQuery("#gc_message_bar").css("bottom"),10) + 5 + parseInt(jQuery("#gc_message_bar").height(),10) + "px"},
+						250,
+						function() {
+							if (jQuery("body").css("margin-bottom") != (parseInt(GC_Message_Bar_htmlMarginBottom) + gc_height) + "px") {
+								jQuery("body")
+									.animate({
+											marginBottom : (parseInt(GC_Message_Bar_htmlMarginBottom) + gc_height) + "px"
+										},
+										250
+									);
+							}
+						}
+					);
+						var date = new Date();
+						date.setTime(date.getTime() + 86400000);
+						if ( wpCookies.get("gc_message_bar_cookie") ) { 
+							wpCookies.set("gc_message_bar_cookie", null, 0, "/") ;
+						}
+						wpCookies.set("gc_message_bar_cookie", "opened", date, "/");
+		
+			}
+			
+			function closeMessageBar() {
+				if (gc_status == "close" || gc_animating == true) {
+					return false;
+				}
+				gc_status = "close"; gc_animating = true;
+				jQuery("#gc_message_bar_open")
+					.delay(300)
+					.animate(
+						{
+							"bottom": parseInt(jQuery("#gc_message_bar_open").css("bottom"),10) + parseInt(jQuery("#gc_message_bar_open").height(),10)
+						},
+						1000,
+						"easeOutElastic",
+						function() {
+							gc_animating = false;
+						}
+					);
+				jQuery("#gc_message_bar")
+					.animate(
+						{
+							"bottom": parseInt(jQuery("#gc_message_bar").css("bottom"),10) - 5 - parseInt(jQuery("#gc_message_bar").height(),10) + "px"
+						}, 
+						250, 
+						function() {
+							jQuery("body")
+								.animate(
+									{
+										marginBottom : "0px"
+									}, 
+									250
+								);
+						}
+					);
+						var date = new Date();
+						date.setTime(date.getTime() + 86400000);
+						if ( wpCookies.get("gc_message_bar_cookie") ) { 
+							wpCookies.set("gc_message_bar_cookie", null, 0, "/") ;
+						}
+						wpCookies.set("gc_message_bar_cookie", "closed", date, "/");
+		
+ 								jQuery(window).unbind("scroll");
+                                jQuery(window).scroll(GC.Sticky.Scroll);
+                        }
+					jQuery("#gc_message_bar_close")
+						.click(function() {
+							closeMessageBar();
+						});
+					jQuery("#gc_message_bar_open")
+						.click(function() {
+							openMessageBar();
+						});jQuery("body")
+							.delay(1*1000)
+							.animate(
+								{
+									"margin-bottom" : (parseInt(jQuery("body").css("margin-bottom")) + gc_height) + "px"
+								},
+								250 
+							);
+						gc_status = "open";
+						jQuery("#gc_message_bar")
+							.delay(1*1000)
+							.animate(
+								{
+									"bottom": parseInt(jQuery("#gc_message_bar").css("bottom"),10) + 5 + parseInt(jQuery("#gc_message_bar").height(),10) + "px"
+								},
+								250, 
+								function() {
+						var date = new Date();
+						date.setTime(date.getTime() + 86400000);
+						if ( wpCookies.get("gc_message_bar_cookie") ) { 
+							wpCookies.set("gc_message_bar_cookie", null, 0, "/") ;
+						}
+						wpCookies.set("gc_message_bar_cookie", "opened", date, "/");
+		
+								}
+							);});
+		</script><div id="lessbuttons_holder"></div><script async src="https://lessbuttons.com/script.js?position=left&onmobile=hide&facebook=1&twitter=1&googleplus=1&linkedin=1&email=1&printfriendly=1&googlebookmarks=1&outlook=1&zindex=100501"></script><!--[if IE]><style type="text/css">.flare-flyout{visibility:visible;}</style><![endif]--><!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://java.globinch.com/wp-content/plugins/flare/css/flare.ie.css" /><![endif]--><script type="text/javascript">
+  var __flare_count_url = "http://java.globinch.com/wp-admin/admin-ajax.php?action=flare_get_counts&url=http%3A%2F%2Fjava.globinch.com%2Fenterprise-services%2Fzookeeper%2Fapache-zookeeper-explained-tutorial-cases-zookeeper-java-api-examples%2F&post_id=341&_wpnonce=b9a3b601b5";
+</script>
+<div id="su-footer-links" style="text-align: center;"><a href="http://www.globinch.com" title="Globinch - Tech Knowledge That Helps">Globinch</a> | <a href="http://plsql.globinch.com" title="Globinch PLSQL Guides">Globinch PLSQL Guides</a></div><div style="display:none">
+  <div id="arvlbdata" style="overflow:visible;width:400px;height:250px;">
+      <div allowtransparency="true" style="overflow:hidden;width:400px;height:250px;" class="fb-page" 
+      data-href="https://www.facebook.com/1526214284283726"
+      data-width="400" 
+      data-height="250" 
+
+      data-small-header="false" 
+      data-adapt-container-width="false" 
+      data-hide-cover="true" 
+      data-show-facepile="true" 
+      data-show-posts="false">
+    </div>
+
+
+</div>
+
+</div>
+      <script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/akismet/_inc/form.js?ver=3.1.7'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init({"xfbml":true,"appId":"358516963021"});if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+/* ]]> */
+</script>
+<script type="text/javascript">(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="http:\/\/connect.facebook.net\/en_US\/all.js";fjs.parentNode.insertBefore(js,fjs)}(document,"script","facebook-jssdk"));</script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/flare/js/flare.dev.js?ver=1.2.7'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-includes/js/wp-embed.min.js?ver=4.4.2'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/wysija-newsletters/js/validate/languages/jquery.validationEngine-en.js?ver=2.7'></script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/wysija-newsletters/js/validate/jquery.validationEngine.js?ver=2.7'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"http:\/\/java.globinch.com\/wp-admin\/admin-ajax.php","loadingTrans":"Loading...","is_rtl":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://java.globinch.com/wp-content/plugins/wysija-newsletters/js/front-subscribers.js?ver=2.7'></script>
+
+<!--     ===== START Dreamgrow Scroll Triggered Box =====   -->
+
+<div class="dgd_stb_box default" id="dgd_scrollbox-283"><a class="dgd_stb_box_close dgd_stb_box_x" href="javascript:void(0);"> </a><div class="inscroll">
+<h5>Get Enterprise Java Newsletter</h5>
+<ul>
+<li>Java Technology How-To Guides</li>
+<li>Enterprise Java Tutorials</li>
+<li>WebServices Guides, Examples</li>
+<li>Technical Architecture Guides</li>
+<li>Design Patterns Guides</li>
+<li>Java Performance Tuning</li>
+<li>Security Tutorials</li>
+<li>Frameworks and Tools</li>
+</ul>
+<p>Enter your email and stay on top of things,<br />
+<iframe width="100%" scrolling="no" frameborder="0" src="http://java.globinch.com/?wysija-page=1&controller=subscribers&action=wysija_outter&wysija_form=1&external_site=1&wysijap=subscriptions" class="iframe-wysija" vspace="0" tabindex="0" style="position: static; top: 0pt; margin: 0px; border-style: none; height: 150px; left: 0pt; visibility: visible;" marginwidth="0" marginheight="0" hspace="0" allowtransparency="true" title="Subscription MailPoet"></iframe></p>
+<p class="stbMsgArea">
+</div>
+</div>
+
+
+<!--     ===== END OF Dreamgrow Scroll Triggered Box =====   -->
+
+<script type="text/javascript">/* Run FooBox FREE (v1.0.9) */
+(function( FOOBOX, $, undefined ) {
+  FOOBOX.o = {wordpress: { enabled: true }, excludes:'.fbx-link,.nofoobox,.nolightbox,a[href*="pinterest.com/pin/create/button/"]', affiliate : { enabled: false }};
+  FOOBOX.init = function() {
+    $(".fbx-link").removeClass("fbx-link");
+    $(".gallery, .wp-caption, a:has(img[class*=wp-image-]), .foobox").foobox(FOOBOX.o);
+  };
+}( window.FOOBOX = window.FOOBOX || {}, jQuery ));
+
+FooBox.ready(function() {
+  //preload the foobox font
+  jQuery("body").append("<span style=\"font-family:'foobox'; color:transparent; position:absolute; top:-1000em;\">f</span>");
+  FOOBOX.init();
+
+});
+</script><div id="fb-root"></div></body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+
+ Served from: java.globinch.com @ 2016-03-14 06:34:25 by W3 Total Cache -->
